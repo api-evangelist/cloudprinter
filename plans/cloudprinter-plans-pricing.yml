@@ -1,0 +1,138 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Cloudprinter
+providerId: cloudprinter
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Print on Demand
+- Print Fulfillment
+- Printing
+- Orders
+- Plans
+description: >-
+  Cloudprinter.com offers free access to the CloudCore API; there is no per-call
+  API fee. Cost is incurred per print order as a combination of the print
+  partner's product print cost plus real-time shipping cost, with a minimal
+  Cloudprinter service markup. Platform tiers (Starter, Business, Enterprise)
+  govern features and print-cost discounts rather than API access. Actual order
+  prices are not a fixed list - they depend on country, product, options,
+  quantity, shipping courier, and service level, and are returned in real time
+  by the /orders/quote endpoint.
+notes: >-
+  Print and shipping prices vary by 170+ print partners worldwide and are only
+  knowable per quote. Platform plan prices below were published on the
+  Cloudprinter service levels page; verify current values during reconciliation.
+sources:
+- https://www.cloudprinter.com/service-and-print-api-levels
+- https://www.cloudprinter.com/blog/cloudprinter-new-tariff-structure
+- https://docs.cloudprinter.com/client/how-to-check-prices
+plans:
+- id: cloudprinter-starter
+  name: Starter
+  type: free
+  description: >-
+    Free plan with full CloudCore API access, automated routing, 24/7 chat
+    support, and access to the full product catalog. Print and shipping are
+    charged per order at standard rates.
+  entries:
+  - label: Platform Fee
+    name: platform_fee
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  - label: Print Cost (per order)
+    name: print_cost
+    type: usage
+    metric: orders
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: per-product print cost set by the assigned print partner
+    userMultiplied: false
+  - label: Shipping Cost (per order)
+    name: shipping_cost
+    type: usage
+    metric: orders
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: real-time courier cost by weight, quantity, and destination
+    userMultiplied: false
+  elements:
+  - name: CloudCore API Access
+  - name: Quotes
+  - name: Orders
+  - name: Products Catalog
+  - name: CloudSignal Webhooks
+  - name: Automated Routing
+- id: cloudprinter-business
+  name: Business
+  type: paid
+  description: >-
+    Paid platform tier adding 10+ routing profiles, the PDF FIX tool, a
+    dedicated regional manager, and a 10% discount on print cost.
+  entries:
+  - label: Platform Fee
+    name: platform_fee
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: €199 per month
+    userMultiplied: false
+  - label: Print Cost Discount
+    name: print_discount
+    type: usage
+    metric: orders
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 10% off print cost
+    userMultiplied: false
+  elements:
+  - name: All Starter Features
+  - name: 10+ Routing Profiles
+  - name: PDF FIX Tool
+  - name: Dedicated Regional Manager
+- id: cloudprinter-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom enterprise tier with custom product templates, custom routing
+    profiles, a dedicated key account manager, custom print-cost discounts, and
+    real-time carbon emissions reporting. A monthly Enterprise fee can replace
+    per-order transaction fees.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: All Business Features
+  - name: Custom Product Templates
+  - name: Custom Routing Profiles
+  - name: Dedicated Key Account Manager
+  - name: Custom Print-Cost Discounts
+  - name: Real-Time Carbon Emissions Reporting
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

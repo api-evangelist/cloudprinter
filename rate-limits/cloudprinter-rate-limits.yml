@@ -1,0 +1,58 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Cloudprinter
+providerId: cloudprinter
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Print on Demand
+- Print Fulfillment
+- Printing
+- Orders
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The Cloudprinter.com CloudCore API does not publish specific numeric rate
+  limits in its public documentation. Calls are authenticated per CloudCore API
+  key and clients are expected to call responsibly - particularly the
+  /orders/quote and /products/info endpoints. CloudSignal webhook delivery has a
+  documented retry policy. Specific per-endpoint request ceilings are not
+  reconciled in this artifact.
+notes: >-
+  Confirm any account- or key-level throttling and burst limits with
+  Cloudprinter support during reconciliation; numeric request-per-minute values
+  are not published.
+sources:
+- https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+- https://docs.cloudprinter.com/client/cloudsignal-webhooks
+responseCodes:
+  badRequest: 400
+  forbidden: 403
+  conflict: 409
+  notFound: 410
+limits:
+- name: CloudCore API Requests
+  scope: api_key
+  metric: requests
+  limit: see provider documentation
+  notes: No numeric public request limit; authenticated per CloudCore API key.
+- name: Quote Requests
+  scope: api_key
+  metric: requests
+  limit: see provider documentation
+  notes: Call /orders/quote responsibly; quote hashes are valid for 48 hours.
+policies:
+- name: Webhook Retry
+  description: >-
+    CloudSignal retries delivering a signal up to 100 attempts over 7 days until
+    the receiving endpoint returns HTTP 200 or 204.
+- name: Backoff Strategy
+  description: >-
+    Clients should implement retry with exponential backoff on transient errors
+    and avoid polling order state when CloudSignal webhooks are available.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

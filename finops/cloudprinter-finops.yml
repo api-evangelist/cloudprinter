@@ -1,0 +1,100 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Cloudprinter
+providerId: cloudprinter
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Print on Demand
+- Print Fulfillment
+- Printing
+- Orders
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Cloudprinter.com spend. There is no per-call API fee; cost is
+  driven per print order by the print partner's product print cost plus
+  real-time shipping cost, with a minimal Cloudprinter service markup. An
+  optional monthly platform subscription (Business / Enterprise) buys features
+  and print-cost discounts. Spend is therefore order-volume driven and is best
+  forecast against quote responses returned by the /orders/quote endpoint.
+notes: >-
+  Per-order print and shipping rates vary across 170+ print partners and
+  destinations; pull them per quote. Platform subscription amounts are subject
+  to change - verify on the Cloudprinter service levels page during
+  reconciliation.
+sources:
+- https://www.cloudprinter.com/service-and-print-api-levels
+- https://www.cloudprinter.com/blog/cloudprinter-new-tariff-structure
+- https://docs.cloudprinter.com/client/how-to-check-prices
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Cloudprinter
+serviceCategory: Print and Fulfillment
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Per Order
+  billingCurrency: EUR
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: CloudCore API
+  ServiceCategory: Print and Fulfillment
+  ProviderName: Cloudprinter
+  PublisherName: Cloudprinter
+  InvoiceIssuerName: Cloudprinter
+  BillingCurrency: EUR
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: print_cost
+  description: Per-product print cost charged by the assigned print partner per order item.
+  unit: orders
+  aggregation: sum
+  dimensions:
+  - account
+  - product
+  - print_partner
+- name: shipping_cost
+  description: Real-time shipping cost by weight, quantity, courier, and destination.
+  unit: orders
+  aggregation: sum
+  dimensions:
+  - account
+  - shipping_level
+  - country
+- name: service_markup
+  description: Minimal Cloudprinter service markup applied per order.
+  unit: orders
+  aggregation: sum
+  dimensions:
+  - account
+- name: platform_subscription
+  description: Optional monthly platform fee for Business / Enterprise tiers.
+  unit: months
+  aggregation: sum
+  dimensions:
+  - account
+  - tier
+principles:
+- name: Visibility
+  description: Use /orders/quote to price items before submission; reconcile order JSON which includes shipping costs.
+- name: Allocation
+  description: Tag orders by reference and CloudCore API key; map to internal projects or storefronts.
+- name: Optimization
+  description: Compare shipping levels (cp_fast, cp_saver, cp_ground, cp_postal); evaluate Business-tier print discounts at volume; route to lower-cost print partners.
+- name: Accountability
+  description: Assign owners per storefront/key and review print and shipping spend per order cohort against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

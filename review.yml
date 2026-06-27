@@ -1,0 +1,66 @@
+aid: cloudprinter
+name: Cloudprinter
+review:
+  question: Does Cloudprinter expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-25'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Cloudprinter's asynchronous surface is
+    CloudSignal, an outbound webhook (HTTP POST) mechanism, not a streaming
+    transport. Under current API Evangelist scope, plain provider-to-consumer
+    webhooks are modeled as REST callbacks rather than AsyncAPI channels, and
+    no SSE or WebSocket stream is documented.
+findings:
+  summary: |
+    Cloudprinter.com does not publish a documented public WebSocket API. The
+    CloudCore API is a synchronous JSON REST interface where every call is an
+    HTTP POST to https://api.cloudprinter.com/cloudcore/1.0 authenticated with
+    an apikey supplied in the request body. Asynchronous production and shipment
+    updates are delivered by CloudSignal webhooks - small JSON HTTP POSTs sent
+    to a CloudCore API interface configured in the dashboard - which is a
+    one-way outbound callback, not a bidirectional WebSocket (ws:// or wss://)
+    connection. No realtime streaming endpoint is documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.cloudprinter.com/cloudcore/1.0
+      documented: true
+    - protocol: Webhook
+      scheme: https
+      note: CloudSignal posts item-based event JSON to a configured endpoint; retries up to 100 attempts over 7 days until 200/204. Outbound callback, not WebSocket.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in the CloudCore API reference or CloudSignal webhook documentation as of the review date.
+  endpointsConfirmedRest:
+    - POST https://api.cloudprinter.com/cloudcore/1.0/orders/
+    - POST https://api.cloudprinter.com/cloudcore/1.0/orders/info
+    - POST https://api.cloudprinter.com/cloudcore/1.0/orders/add
+    - POST https://api.cloudprinter.com/cloudcore/1.0/orders/cancel
+    - POST https://api.cloudprinter.com/cloudcore/1.0/orders/log
+    - POST https://api.cloudprinter.com/cloudcore/1.0/orders/quote
+    - POST https://api.cloudprinter.com/cloudcore/1.0/products
+    - POST https://api.cloudprinter.com/cloudcore/1.0/products/info
+    - POST https://api.cloudprinter.com/cloudcore/1.0/shipping/levels
+    - POST https://api.cloudprinter.com/cloudcore/1.0/shipping/countries
+    - POST https://api.cloudprinter.com/cloudcore/1.0/shipping/states
+sources:
+  - url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+    type: APIReference
+    note: CloudCore API v1.0; all documented endpoints are HTTPS POST with apikey in the JSON body.
+  - url: https://docs.cloudprinter.com/client/cloudcore-api-base-definitions-v1-0
+    type: Documentation
+    note: Base definitions - price unit types, shipping levels, option types.
+  - url: https://docs.cloudprinter.com/client/cloudsignal-webhooks
+    type: Documentation
+    note: CloudSignal webhooks are outbound JSON POST callbacks with a retry policy; no WebSocket.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or SSE streaming surface exists. The asynchronous capability is
+    an outbound webhook (CloudSignal), modeled in apis.yml as the Signal
+    Webhooks API. No AsyncAPI document was created.

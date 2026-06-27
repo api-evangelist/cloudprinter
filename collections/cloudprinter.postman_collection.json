@@ -1,0 +1,138 @@
+{
+  "info": {
+    "name": "Cloudprinter CloudCore API",
+    "description": "JSON REST collection for the Cloudprinter.com CloudCore API v1.0. All requests are HTTP POST and authenticate with a CloudCore apikey in the JSON request body.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.cloudprinter.com/cloudcore/1.0"
+    },
+    {
+      "key": "apikey",
+      "value": "__YOUR_API_KEY__"
+    }
+  ],
+  "item": [
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "List Orders",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/orders/", "host": ["{{baseUrl}}"], "path": ["orders", ""] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\"\n}" }
+          }
+        },
+        {
+          "name": "Get Order Info",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/orders/info", "host": ["{{baseUrl}}"], "path": ["orders", "info"] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\",\n  \"reference\": \"my-order-001\"\n}" }
+          }
+        },
+        {
+          "name": "Add Order",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/orders/add", "host": ["{{baseUrl}}"], "path": ["orders", "add"] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\",\n  \"reference\": \"my-order-001\",\n  \"email\": \"buyer@example.com\",\n  \"addresses\": [\n    {\n      \"type\": \"delivery\",\n      \"firstname\": \"Jane\",\n      \"lastname\": \"Doe\",\n      \"street1\": \"123 Main St\",\n      \"zip\": \"1000\",\n      \"city\": \"Copenhagen\",\n      \"country\": \"DK\"\n    }\n  ],\n  \"items\": [\n    {\n      \"reference\": \"item-1\",\n      \"product\": \"textbook_pb_a4_p_bw\",\n      \"count\": 1,\n      \"shipping_level\": \"cp_saver\",\n      \"files\": [\n        { \"type\": \"book\", \"url\": \"https://example.com/book.pdf\", \"md5sum\": \"<md5>\" }\n      ]\n    }\n  ]\n}" }
+          }
+        },
+        {
+          "name": "Cancel Order",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/orders/cancel", "host": ["{{baseUrl}}"], "path": ["orders", "cancel"] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\",\n  \"reference\": \"my-order-001\"\n}" }
+          }
+        },
+        {
+          "name": "Order Log",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/orders/log", "host": ["{{baseUrl}}"], "path": ["orders", "log"] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\",\n  \"reference\": \"my-order-001\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Quotes",
+      "item": [
+        {
+          "name": "Order Quote",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/orders/quote", "host": ["{{baseUrl}}"], "path": ["orders", "quote"] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\",\n  \"country\": \"DK\",\n  \"currency\": \"EUR\",\n  \"items\": [\n    {\n      \"reference\": \"item-1\",\n      \"product\": \"textbook_pb_a4_p_bw\",\n      \"count\": 1\n    }\n  ]\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "List Products",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/products", "host": ["{{baseUrl}}"], "path": ["products"] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\"\n}" }
+          }
+        },
+        {
+          "name": "Product Info",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/products/info", "host": ["{{baseUrl}}"], "path": ["products", "info"] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\",\n  \"product\": \"textbook_pb_a4_p_bw\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shipping",
+      "item": [
+        {
+          "name": "Shipping Levels",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/shipping/levels", "host": ["{{baseUrl}}"], "path": ["shipping", "levels"] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\"\n}" }
+          }
+        },
+        {
+          "name": "Shipping Countries",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/shipping/countries", "host": ["{{baseUrl}}"], "path": ["shipping", "countries"] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\"\n}" }
+          }
+        },
+        {
+          "name": "Shipping States",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/shipping/states", "host": ["{{baseUrl}}"], "path": ["shipping", "states"] },
+            "body": { "mode": "raw", "raw": "{\n  \"apikey\": \"{{apikey}}\",\n  \"country\": \"US\"\n}" }
+          }
+        }
+      ]
+    }
+  ]
+}

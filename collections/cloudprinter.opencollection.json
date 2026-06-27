@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cloudprinter CloudCore API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "in": "body"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "List orders", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/orders/",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\"}" }
+          },
+          "docs": "Request a list of all orders for the account."
+        },
+        {
+          "info": { "name": "Get order info", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/orders/info",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\",\"reference\":\"my-order-001\"}" }
+          },
+          "docs": "Retrieve full details for a specific order including addresses, items, and files."
+        },
+        {
+          "info": { "name": "Add order", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/orders/add",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\",\"reference\":\"my-order-001\",\"email\":\"buyer@example.com\",\"addresses\":[],\"items\":[]}" }
+          },
+          "docs": "Create a new order with items, addresses, options, and file references."
+        },
+        {
+          "info": { "name": "Cancel order", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/orders/cancel",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\",\"reference\":\"my-order-001\"}" }
+          },
+          "docs": "Request cancellation of an order that has not yet entered production."
+        },
+        {
+          "info": { "name": "Order log", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/orders/log",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\",\"reference\":\"my-order-001\"}" }
+          },
+          "docs": "Retrieve the historical state changes for an order."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Quotes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "Order quote", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/orders/quote",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\",\"country\":\"DK\",\"currency\":\"EUR\",\"items\":[{\"reference\":\"item-1\",\"product\":\"textbook_pb_a4_p_bw\",\"count\":1}]}" }
+          },
+          "docs": "Calculate product prices and shipping options; returns a quote hash valid for 48 hours."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "List products", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/products",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\"}" }
+          },
+          "docs": "Request a list of all products enabled for the account."
+        },
+        {
+          "info": { "name": "Product info", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/products/info",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\",\"product\":\"textbook_pb_a4_p_bw\"}" }
+          },
+          "docs": "Get detailed specifications, available options, and pricing for a product."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Shipping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "Shipping levels", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/shipping/levels",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\"}" }
+          },
+          "docs": "Retrieve available shipping service tiers (cp_fast, cp_saver, cp_ground, cp_postal)."
+        },
+        {
+          "info": { "name": "Shipping countries", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/shipping/countries",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\"}" }
+          },
+          "docs": "List supported delivery destination countries."
+        },
+        {
+          "info": { "name": "Shipping states", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/shipping/states",
+            "body": { "type": "json", "data": "{\"apikey\":\"__YOUR_API_KEY__\",\"country\":\"US\"}" }
+          },
+          "docs": "Get the regions or states available for a specific country."
+        }
+      ]
+    }
+  ]
+}
