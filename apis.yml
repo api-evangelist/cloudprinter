@@ -111,6 +111,10 @@ apis:
     by type, URL, and MD5 checksum, and are returned with the same metadata on order
     info for download and verification by production.
 common:
+- type: DomainSecurity
+  url: security/cloudprinter-domain-security.yml
+- type: Authentication
+  url: authentication/cloudprinter-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/cloudprintercom
 - type: LinkedIn

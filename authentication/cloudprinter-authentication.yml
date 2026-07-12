@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/cloudprinter-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apikeyBody
+  type: apiKey
+  in: header
+  parameter: apikey
+  description: CloudCore API key from the Cloudprinter.com dashboard. The API key is supplied
+    in the JSON request body as the "apikey" field on every call; this scheme is declared as
+    a header for tooling compatibility.
+  sources:
+  - openapi/cloudprinter-openapi.yml
