@@ -111,6 +111,8 @@ apis:
     by type, URL, and MD5 checksum, and are returned with the same metadata on order
     info for download and verification by production.
 common:
+- type: AgenticAccess
+  url: agentic-access/cloudprinter-agentic-access.yml
 - type: DomainSecurity
   url: security/cloudprinter-domain-security.yml
 - type: Authentication
