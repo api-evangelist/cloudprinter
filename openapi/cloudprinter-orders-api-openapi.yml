@@ -1,0 +1,337 @@
+openapi: 3.0.1
+info:
+  title: Cloudprinter CloudCore Orders API
+  description: The Cloudprinter.com CloudCore API is a JSON REST interface for the global print-on-demand and print-fulfillment network. All calls are HTTP POST and authenticate with a CloudCore apikey supplied in the JSON request body. The API exposes product catalog lookups, real-time price and shipping quotes, order creation and management, and shipping reference data. Production and shipment events are delivered separately via CloudSignal webhooks.
+  termsOfService: https://www.cloudprinter.com/terms-conditions
+  contact:
+    name: Cloudprinter.com Support
+    url: https://www.cloudprinter.com/contact
+  version: '1.0'
+servers:
+- url: https://api.cloudprinter.com/cloudcore/1.0
+  description: CloudCore API v1.0 production server
+security:
+- apikeyBody: []
+tags:
+- name: Orders
+  description: Create, list, retrieve, cancel, and audit print orders.
+paths:
+  /orders/:
+    post:
+      operationId: listOrders
+      tags:
+      - Orders
+      summary: List orders
+      description: Request a list of all orders for the account.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKeyRequest'
+      responses:
+        '200':
+          description: A list of orders.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderListResponse'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /orders/info:
+    post:
+      operationId: getOrderInfo
+      tags:
+      - Orders
+      summary: Get order info
+      description: Retrieve comprehensive details for a specific order including addresses, items, files, and current state.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderReferenceRequest'
+      responses:
+        '200':
+          description: Order details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '410':
+          $ref: '#/components/responses/NotFound'
+  /orders/add:
+    post:
+      operationId: addOrder
+      tags:
+      - Orders
+      summary: Add order
+      description: Create a new order with items, addresses, options, and print file references. Items may reference a quote hash or specify a shipping level directly.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddOrderRequest'
+      responses:
+        '201':
+          description: Order created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddOrderResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /orders/cancel:
+    post:
+      operationId: cancelOrder
+      tags:
+      - Orders
+      summary: Cancel order
+      description: Request cancellation of an order that has not yet entered production.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderReferenceRequest'
+      responses:
+        '200':
+          description: Cancellation accepted.
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '410':
+          $ref: '#/components/responses/NotFound'
+  /orders/log:
+    post:
+      operationId: getOrderLog
+      tags:
+      - Orders
+      summary: Order log
+      description: Retrieve the historical state changes for an order.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderReferenceRequest'
+      responses:
+        '200':
+          description: Order state-change log.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderLogResponse'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '410':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Address:
+      type: object
+      required:
+      - type
+      - firstname
+      - lastname
+      - street1
+      - zip
+      - city
+      - country
+      properties:
+        type:
+          type: string
+          description: Address type - delivery or invoice.
+        firstname:
+          type: string
+        lastname:
+          type: string
+        company:
+          type: string
+        street1:
+          type: string
+        street2:
+          type: string
+        zip:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code.
+        email:
+          type: string
+        phone:
+          type: string
+    OrderItem:
+      type: object
+      required:
+      - reference
+      - product
+      - count
+      properties:
+        reference:
+          type: string
+        product:
+          type: string
+        count:
+          type: integer
+        shipping_level:
+          type: string
+          description: Shipping level reference (e.g. cp_saver). Use this or a quote hash.
+        quote:
+          type: string
+          description: Quote hash from a prior /orders/quote call.
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Option'
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/File'
+    OrderReferenceRequest:
+      type: object
+      required:
+      - apikey
+      - reference
+      properties:
+        apikey:
+          type: string
+        reference:
+          type: string
+          description: The unique order reference.
+    AddOrderResponse:
+      type: object
+      properties:
+        reference:
+          type: string
+        order:
+          type: string
+          description: Cloudprinter order identifier.
+    ApiKeyRequest:
+      type: object
+      required:
+      - apikey
+      properties:
+        apikey:
+          type: string
+          description: CloudCore API key.
+    Order:
+      type: object
+      properties:
+        reference:
+          type: string
+        order:
+          type: string
+        state:
+          type: string
+        email:
+          type: string
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+    AddOrderRequest:
+      type: object
+      required:
+      - apikey
+      - reference
+      - email
+      - addresses
+      - items
+      properties:
+        apikey:
+          type: string
+        reference:
+          type: string
+          description: Unique order reference supplied by the caller.
+        email:
+          type: string
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+    OrderLogResponse:
+      type: object
+      properties:
+        log:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date-time
+              state:
+                type: string
+              message:
+                type: string
+    Option:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          description: Option type reference (e.g. type_cover_paper, type_book_binding).
+        count:
+          type: integer
+    OrderListResponse:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+    File:
+      type: object
+      required:
+      - type
+      - url
+      properties:
+        type:
+          type: string
+          description: File type - product, cover, or book.
+          enum:
+          - product
+          - cover
+          - book
+        url:
+          type: string
+          format: uri
+          description: Publicly reachable URL of the print-ready file.
+        md5sum:
+          type: string
+          description: MD5 checksum used to validate the downloaded file.
+  responses:
+    BadRequest:
+      description: Invalid request parameters.
+    Conflict:
+      description: Conflict - the order is in a state that does not allow the operation.
+    NotFound:
+      description: Resource not found.
+    Forbidden:
+      description: Missing or invalid credentials.
+  securitySchemes:
+    apikeyBody:
+      type: apiKey
+      in: header
+      name: apikey
+      description: CloudCore API key from the Cloudprinter.com dashboard. The API key is supplied in the JSON request body as the "apikey" field on every call; this scheme is declared as a header for tooling compatibility.

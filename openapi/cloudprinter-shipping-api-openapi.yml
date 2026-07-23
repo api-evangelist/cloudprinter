@@ -1,0 +1,102 @@
+openapi: 3.0.1
+info:
+  title: Cloudprinter CloudCore Orders Shipping API
+  description: The Cloudprinter.com CloudCore API is a JSON REST interface for the global print-on-demand and print-fulfillment network. All calls are HTTP POST and authenticate with a CloudCore apikey supplied in the JSON request body. The API exposes product catalog lookups, real-time price and shipping quotes, order creation and management, and shipping reference data. Production and shipment events are delivered separately via CloudSignal webhooks.
+  termsOfService: https://www.cloudprinter.com/terms-conditions
+  contact:
+    name: Cloudprinter.com Support
+    url: https://www.cloudprinter.com/contact
+  version: '1.0'
+servers:
+- url: https://api.cloudprinter.com/cloudcore/1.0
+  description: CloudCore API v1.0 production server
+security:
+- apikeyBody: []
+tags:
+- name: Shipping
+  description: Shipping levels, supported countries, and states reference data.
+paths:
+  /shipping/levels:
+    post:
+      operationId: getShippingLevels
+      tags:
+      - Shipping
+      summary: Shipping levels
+      description: Retrieve the available shipping service tiers (cp_fast, cp_saver, cp_ground, cp_postal).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKeyRequest'
+      responses:
+        '200':
+          description: Available shipping levels.
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /shipping/countries:
+    post:
+      operationId: getShippingCountries
+      tags:
+      - Shipping
+      summary: Shipping countries
+      description: List supported delivery destination countries.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKeyRequest'
+      responses:
+        '200':
+          description: Supported countries.
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /shipping/states:
+    post:
+      operationId: getShippingStates
+      tags:
+      - Shipping
+      summary: Shipping states
+      description: Get the regions or states available for a specific country.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingStatesRequest'
+      responses:
+        '200':
+          description: States for the given country.
+        '403':
+          $ref: '#/components/responses/Forbidden'
+components:
+  schemas:
+    ShippingStatesRequest:
+      type: object
+      required:
+      - apikey
+      - country
+      properties:
+        apikey:
+          type: string
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code.
+    ApiKeyRequest:
+      type: object
+      required:
+      - apikey
+      properties:
+        apikey:
+          type: string
+          description: CloudCore API key.
+  responses:
+    Forbidden:
+      description: Missing or invalid credentials.
+  securitySchemes:
+    apikeyBody:
+      type: apiKey
+      in: header
+      name: apikey
+      description: CloudCore API key from the Cloudprinter.com dashboard. The API key is supplied in the JSON request body as the "apikey" field on every call; this scheme is declared as a header for tooling compatibility.

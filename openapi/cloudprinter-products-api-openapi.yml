@@ -1,0 +1,131 @@
+openapi: 3.0.1
+info:
+  title: Cloudprinter CloudCore Orders Products API
+  description: The Cloudprinter.com CloudCore API is a JSON REST interface for the global print-on-demand and print-fulfillment network. All calls are HTTP POST and authenticate with a CloudCore apikey supplied in the JSON request body. The API exposes product catalog lookups, real-time price and shipping quotes, order creation and management, and shipping reference data. Production and shipment events are delivered separately via CloudSignal webhooks.
+  termsOfService: https://www.cloudprinter.com/terms-conditions
+  contact:
+    name: Cloudprinter.com Support
+    url: https://www.cloudprinter.com/contact
+  version: '1.0'
+servers:
+- url: https://api.cloudprinter.com/cloudcore/1.0
+  description: CloudCore API v1.0 production server
+security:
+- apikeyBody: []
+tags:
+- name: Products
+  description: List products and retrieve product specifications and options.
+paths:
+  /products:
+    post:
+      operationId: listProducts
+      tags:
+      - Products
+      summary: List products
+      description: Request a list of all products already enabled for the account.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKeyRequest'
+      responses:
+        '200':
+          description: A list of products.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductListResponse'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /products/info:
+    post:
+      operationId: getProductInfo
+      tags:
+      - Products
+      summary: Product info
+      description: Get detailed specifications, available options, and pricing for a single product by its product reference.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInfoRequest'
+      responses:
+        '200':
+          description: Product specification and options.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductInfo'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '410':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    NotFound:
+      description: Resource not found.
+    Forbidden:
+      description: Missing or invalid credentials.
+  schemas:
+    ProductInfoRequest:
+      type: object
+      required:
+      - apikey
+      - product
+      properties:
+        apikey:
+          type: string
+        product:
+          type: string
+          description: The product reference.
+    ApiKeyRequest:
+      type: object
+      required:
+      - apikey
+      properties:
+        apikey:
+          type: string
+          description: CloudCore API key.
+    ProductListResponse:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              reference:
+                type: string
+              name:
+                type: string
+              category:
+                type: string
+    ProductInfo:
+      type: object
+      properties:
+        reference:
+          type: string
+        name:
+          type: string
+        options:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              name:
+                type: string
+        price_units:
+          type: array
+          items:
+            type: string
+            description: Price unit type (e.g. price_unit_pr_order, price_unit_pr_page).
+  securitySchemes:
+    apikeyBody:
+      type: apiKey
+      in: header
+      name: apikey
+      description: CloudCore API key from the Cloudprinter.com dashboard. The API key is supplied in the JSON request body as the "apikey" field on every call; this scheme is declared as a header for tooling compatibility.

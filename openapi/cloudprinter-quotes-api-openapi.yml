@@ -1,0 +1,133 @@
+openapi: 3.0.1
+info:
+  title: Cloudprinter CloudCore Orders Quotes API
+  description: The Cloudprinter.com CloudCore API is a JSON REST interface for the global print-on-demand and print-fulfillment network. All calls are HTTP POST and authenticate with a CloudCore apikey supplied in the JSON request body. The API exposes product catalog lookups, real-time price and shipping quotes, order creation and management, and shipping reference data. Production and shipment events are delivered separately via CloudSignal webhooks.
+  termsOfService: https://www.cloudprinter.com/terms-conditions
+  contact:
+    name: Cloudprinter.com Support
+    url: https://www.cloudprinter.com/contact
+  version: '1.0'
+servers:
+- url: https://api.cloudprinter.com/cloudcore/1.0
+  description: CloudCore API v1.0 production server
+security:
+- apikeyBody: []
+tags:
+- name: Quotes
+  description: Request real-time product and shipping price quotes.
+paths:
+  /orders/quote:
+    post:
+      operationId: getOrderQuote
+      tags:
+      - Quotes
+      summary: Order quote
+      description: Calculate product prices and shipping options for a list of items in a destination country. Each returned quote carries a unique hash valid for 48 hours that can be referenced when adding an order.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuoteRequest'
+      responses:
+        '200':
+          description: Quote results with product prices and shipping options.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+components:
+  schemas:
+    QuoteRequest:
+      type: object
+      required:
+      - apikey
+      - country
+      - items
+      properties:
+        apikey:
+          type: string
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 destination country code.
+        state:
+          type: string
+          description: State or region code, required for some countries (e.g. US).
+        currency:
+          type: string
+          description: ISO 4217 currency code for returned prices.
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteItem'
+    QuoteResponse:
+      type: object
+      properties:
+        quotes:
+          type: array
+          items:
+            type: object
+            properties:
+              hash:
+                type: string
+                description: Unique quote hash, valid for 48 hours.
+              price:
+                type: string
+              currency:
+                type: string
+              shipping_options:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    level:
+                      type: string
+                    price:
+                      type: string
+                    currency:
+                      type: string
+    Option:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          description: Option type reference (e.g. type_cover_paper, type_book_binding).
+        count:
+          type: integer
+    QuoteItem:
+      type: object
+      required:
+      - reference
+      - product
+      - count
+      properties:
+        reference:
+          type: string
+          description: Caller-supplied item reference.
+        product:
+          type: string
+          description: Product reference.
+        count:
+          type: integer
+          description: Number of copies.
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Option'
+  responses:
+    BadRequest:
+      description: Invalid request parameters.
+    Forbidden:
+      description: Missing or invalid credentials.
+  securitySchemes:
+    apikeyBody:
+      type: apiKey
+      in: header
+      name: apikey
+      description: CloudCore API key from the Cloudprinter.com dashboard. The API key is supplied in the JSON request body as the "apikey" field on every call; this scheme is declared as a header for tooling compatibility.
