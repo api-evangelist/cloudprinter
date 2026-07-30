@@ -7,7 +7,20 @@ description: Cloudprinter.com is a global print-on-demand and print-fulfillment 
   lets developers fetch product catalogs, request real-time price and shipping quotes,
   submit and manage print orders, and receive production and shipment events via
   CloudSignal webhooks.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cloudprinter.png
 tags:
 - Print on Demand
 - Print Fulfillment
@@ -20,96 +33,76 @@ specificationVersion: '0.19'
 apis:
 - aid: cloudprinter:cloudprinter-orders-api
   name: Cloudprinter Orders API
+  description: Create, list, retrieve, cancel, and audit print orders.
+  humanURL: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+  baseURL: https://api.cloudprinter.com/cloudcore/1.0
   tags:
   - Orders
-  - Fulfillment
-  - Printing
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/cloudprinter-orders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+  - type: APIReference
+    url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/how-to-check-prices
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/cloudsignal-webhooks
+- aid: cloudprinter:cloudprinter-products-api
+  name: Cloudprinter Products API
+  description: List products and retrieve product specifications and options.
   humanURL: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
   baseURL: https://api.cloudprinter.com/cloudcore/1.0
-  properties:
-  - url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
-    type: Documentation
-  - url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
-    type: APIReference
-  - url: openapi/cloudprinter-openapi.yml
-    type: OpenAPI
-  description: Create, list, retrieve, cancel, and audit print orders. Orders carry
-    items, addresses, shipping levels, options, and file references, and are submitted
-    as JSON POST requests with the CloudCore apikey in the body.
-- aid: cloudprinter:cloudprinter-products-pricing-api
-  name: Cloudprinter Products & Pricing API
   tags:
   - Products
-  - Catalog
-  - Pricing
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
-  baseURL: https://api.cloudprinter.com/cloudcore/1.0
   properties:
-  - url: https://docs.cloudprinter.com/client/how-to-check-prices
-    type: Documentation
-  - url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
-    type: APIReference
-  - url: openapi/cloudprinter-openapi.yml
-    type: OpenAPI
-  description: List products enabled for the account and retrieve detailed product
-    specifications, available options, and pricing via the products and products/info
-    endpoints.
+  - type: OpenAPI
+    url: openapi/cloudprinter-products-api-openapi.yml
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+  - type: APIReference
+    url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/how-to-check-prices
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/cloudsignal-webhooks
 - aid: cloudprinter:cloudprinter-quotes-api
   name: Cloudprinter Quotes API
-  tags:
-  - Quotes
-  - Pricing
-  - Shipping
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.cloudprinter.com/client/how-to-check-prices
-  baseURL: https://api.cloudprinter.com/cloudcore/1.0
-  properties:
-  - url: https://docs.cloudprinter.com/client/how-to-check-prices
-    type: Documentation
-  - url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
-    type: APIReference
-  - url: openapi/cloudprinter-openapi.yml
-    type: OpenAPI
-  description: Request real-time quotes for a list of items returning product prices,
-    shipping options, and shipping prices. Each quote carries a unique hash valid
-    for 48 hours that can be referenced when placing an order.
-- aid: cloudprinter:cloudprinter-signal-webhooks-api
-  name: Cloudprinter Signal Webhooks API
-  tags:
-  - Webhooks
-  - Signals
-  - Events
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.cloudprinter.com/client/cloudsignal-webhooks
-  baseURL: https://api.cloudprinter.com/cloudcore/1.0
-  properties:
-  - url: https://docs.cloudprinter.com/client/cloudsignal-webhooks
-    type: Documentation
-  - url: openapi/cloudprinter-openapi.yml
-    type: OpenAPI
-  description: CloudSignal pushes item-based production and shipment events (order
-    validated, item produced, item shipped with tracking, item error, item cancelled)
-    as small JSON POSTs to a configured CloudCore API interface, retrying up to 100
-    attempts over 7 days until a 200/204 is returned.
-- aid: cloudprinter:cloudprinter-files-api
-  name: Cloudprinter Files API
-  tags:
-  - Files
-  - Print Files
-  - Assets
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  description: Request real-time product and shipping price quotes.
   humanURL: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
   baseURL: https://api.cloudprinter.com/cloudcore/1.0
+  tags:
+  - Quotes
   properties:
-  - url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
-    type: Documentation
-  - url: openapi/cloudprinter-openapi.yml
-    type: OpenAPI
-  description: Print-ready files (product, cover, book) are referenced on order items
-    by type, URL, and MD5 checksum, and are returned with the same metadata on order
-    info for download and verification by production.
+  - type: OpenAPI
+    url: openapi/cloudprinter-quotes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+  - type: APIReference
+    url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/how-to-check-prices
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/cloudsignal-webhooks
+- aid: cloudprinter:cloudprinter-shipping-api
+  name: Cloudprinter Shipping API
+  description: Shipping levels, supported countries, and states reference data.
+  humanURL: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+  baseURL: https://api.cloudprinter.com/cloudcore/1.0
+  tags:
+  - Shipping
+  properties:
+  - type: OpenAPI
+    url: openapi/cloudprinter-shipping-api-openapi.yml
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+  - type: APIReference
+    url: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/how-to-check-prices
+  - type: Documentation
+    url: https://docs.cloudprinter.com/client/cloudsignal-webhooks
 common:
 - type: AgenticAccess
   url: agentic-access/cloudprinter-agentic-access.yml
