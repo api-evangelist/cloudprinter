@@ -1,0 +1,246 @@
+{
+  "item": [
+    {
+      "id": "d5971085-b669-43e8-88d1-33416043b63b",
+      "name": "Quotes",
+      "description": {
+        "content": "Request real-time product and shipping price quotes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "297c0a3e-7dff-4698-a298-d2a214586e3e",
+          "name": "Order quote",
+          "request": {
+            "name": "Order quote",
+            "description": {
+              "content": "Calculate product prices and shipping options for a list of items in a destination country. Each returned quote carries a unique hash valid for 48 hours that can be referenced when adding an order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "quote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apikey\": \"<string>\",\n  \"country\": \"<string>\",\n  \"items\": [\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ]\n    },\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eeaa9d40-fe94-46ca-9dbe-9e400858a41d",
+              "name": "Quote results with product prices and shipping options.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"country\": \"<string>\",\n  \"items\": [\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ]\n    },\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"quotes\": [\n    {\n      \"hash\": \"string\",\n      \"price\": \"string\",\n      \"currency\": \"string\",\n      \"shipping_options\": [\n        {\n          \"level\": \"string\",\n          \"price\": \"string\",\n          \"currency\": \"string\"\n        },\n        {\n          \"level\": \"string\",\n          \"price\": \"string\",\n          \"currency\": \"string\"\n        }\n      ]\n    },\n    {\n      \"hash\": \"string\",\n      \"price\": \"string\",\n      \"currency\": \"string\",\n      \"shipping_options\": [\n        {\n          \"level\": \"string\",\n          \"price\": \"string\",\n          \"currency\": \"string\"\n        },\n        {\n          \"level\": \"string\",\n          \"price\": \"string\",\n          \"currency\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a176ec1b-b307-4a34-8436-fdba26422159",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"country\": \"<string>\",\n  \"items\": [\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ]\n    },\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ae65142b-ad78-4c6d-a50d-81ae8f480012",
+              "name": "Missing or invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"country\": \"<string>\",\n  \"items\": [\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ]\n    },\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ]\n    }\n  ],\n  \"state\": \"<string>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.cloudprinter.com/cloudcore/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a21bdd2b-0d1e-4d3c-acc1-9b30013af47d",
+    "name": "Cloudprinter CloudCore Orders Quotes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Cloudprinter.com CloudCore API is a JSON REST interface for the global print-on-demand and print-fulfillment network. All calls are HTTP POST and authenticate with a CloudCore apikey supplied in the JSON request body. The API exposes product catalog lookups, real-time price and shipping quotes, order creation and management, and shipping reference data. Production and shipment events are delivered separately via CloudSignal webhooks.\n\nContact Support:\n Name: Cloudprinter.com Support",
+      "type": "text/plain"
+    }
+  }
+}

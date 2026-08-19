@@ -1,0 +1,1026 @@
+{
+  "item": [
+    {
+      "id": "42260631-cacb-4d6d-bb89-993743613902",
+      "name": "Orders",
+      "description": {
+        "content": "Create, list, retrieve, cancel, and audit print orders.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fbc8ce20-55f9-4323-93c6-d67edb892c93",
+          "name": "List orders",
+          "request": {
+            "name": "List orders",
+            "description": {
+              "content": "Request a list of all orders for the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apikey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "51af308e-3db1-49fe-aae5-4a1a0d7f9299",
+              "name": "A list of orders.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": [\n    {\n      \"reference\": \"string\",\n      \"order\": \"string\",\n      \"state\": \"string\",\n      \"email\": \"string\",\n      \"addresses\": [\n        {\n          \"type\": \"string\",\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"street1\": \"string\",\n          \"zip\": \"string\",\n          \"city\": \"string\",\n          \"country\": \"string\",\n          \"company\": \"string\",\n          \"street2\": \"string\",\n          \"state\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"street1\": \"string\",\n          \"zip\": \"string\",\n          \"city\": \"string\",\n          \"country\": \"string\",\n          \"company\": \"string\",\n          \"street2\": \"string\",\n          \"state\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\"\n        }\n      ],\n      \"items\": [\n        {\n          \"reference\": \"string\",\n          \"product\": \"string\",\n          \"count\": 3313,\n          \"shipping_level\": \"string\",\n          \"quote\": \"string\",\n          \"options\": [\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"files\": [\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"md5sum\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"md5sum\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"reference\": \"string\",\n          \"product\": \"string\",\n          \"count\": 7195,\n          \"shipping_level\": \"string\",\n          \"quote\": \"string\",\n          \"options\": [\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"files\": [\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"md5sum\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"md5sum\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"reference\": \"string\",\n      \"order\": \"string\",\n      \"state\": \"string\",\n      \"email\": \"string\",\n      \"addresses\": [\n        {\n          \"type\": \"string\",\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"street1\": \"string\",\n          \"zip\": \"string\",\n          \"city\": \"string\",\n          \"country\": \"string\",\n          \"company\": \"string\",\n          \"street2\": \"string\",\n          \"state\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"street1\": \"string\",\n          \"zip\": \"string\",\n          \"city\": \"string\",\n          \"country\": \"string\",\n          \"company\": \"string\",\n          \"street2\": \"string\",\n          \"state\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\"\n        }\n      ],\n      \"items\": [\n        {\n          \"reference\": \"string\",\n          \"product\": \"string\",\n          \"count\": 389,\n          \"shipping_level\": \"string\",\n          \"quote\": \"string\",\n          \"options\": [\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"files\": [\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"md5sum\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"md5sum\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"reference\": \"string\",\n          \"product\": \"string\",\n          \"count\": 8557,\n          \"shipping_level\": \"string\",\n          \"quote\": \"string\",\n          \"options\": [\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"files\": [\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"md5sum\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"md5sum\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65fd28b3-fd9b-4ddc-a4ac-9d775482e33d",
+              "name": "Missing or invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d70e5846-75ac-45fd-a977-e5c5b23d58f6",
+          "name": "Get order info",
+          "request": {
+            "name": "Get order info",
+            "description": {
+              "content": "Retrieve comprehensive details for a specific order including addresses, items, files, and current state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3731f689-8b2e-4aff-880f-68c61fd66ee8",
+              "name": "Order details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reference\": \"string\",\n  \"order\": \"string\",\n  \"state\": \"string\",\n  \"email\": \"string\",\n  \"addresses\": [\n    {\n      \"type\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"street1\": \"string\",\n      \"zip\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"company\": \"string\",\n      \"street2\": \"string\",\n      \"state\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"street1\": \"string\",\n      \"zip\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"company\": \"string\",\n      \"street2\": \"string\",\n      \"state\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    }\n  ],\n  \"items\": [\n    {\n      \"reference\": \"string\",\n      \"product\": \"string\",\n      \"count\": 838,\n      \"shipping_level\": \"string\",\n      \"quote\": \"string\",\n      \"options\": [\n        {\n          \"type\": \"string\",\n          \"count\": 1018\n        },\n        {\n          \"type\": \"string\",\n          \"count\": 8030\n        }\n      ],\n      \"files\": [\n        {\n          \"type\": \"cover\",\n          \"url\": \"https://ogjGl.icrPc3xHnExecVX.r8mbx6YFbaN5\",\n          \"md5sum\": \"string\"\n        },\n        {\n          \"type\": \"product\",\n          \"url\": \"http://BWcNqbyBgjNEGzDaZpvH.hnlwAfWKbBeqBU+y+317IgeeJ7VNzAn9C-jwTuotTXnvILwt,7Nz3Mi4lzLdm2RzaESKiIl\",\n          \"md5sum\": \"string\"\n        }\n      ]\n    },\n    {\n      \"reference\": \"string\",\n      \"product\": \"string\",\n      \"count\": 7743,\n      \"shipping_level\": \"string\",\n      \"quote\": \"string\",\n      \"options\": [\n        {\n          \"type\": \"string\",\n          \"count\": 3874\n        },\n        {\n          \"type\": \"string\",\n          \"count\": 6111\n        }\n      ],\n      \"files\": [\n        {\n          \"type\": \"product\",\n          \"url\": \"http://jtgDJwZAQTsiKmOIpGrXE.zbxaVbR4FOppiKODEcl\",\n          \"md5sum\": \"string\"\n        },\n        {\n          \"type\": \"cover\",\n          \"url\": \"http://OjBaBSfTwnhTkNWuqSG.hgumPfuOf5pHrLLAYRs1wF.3FIxoDKkGxv0JOAOvM\",\n          \"md5sum\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c9ce135-06a6-40ff-b190-f0eac2af2fa5",
+              "name": "Missing or invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2ca371cf-4c89-4698-8100-43431ab93f58",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1757e3d0-ecb8-48ff-8e30-1c0bfa5b84a4",
+          "name": "Add order",
+          "request": {
+            "name": "Add order",
+            "description": {
+              "content": "Create a new order with items, addresses, options, and print file references. Items may reference a quote hash or specify a shipping level directly.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"email\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"company\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"state\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"company\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"state\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  ],\n  \"items\": [\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"shipping_level\": \"<string>\",\n      \"quote\": \"<string>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ],\n      \"files\": [\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"shipping_level\": \"<string>\",\n      \"quote\": \"<string>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ],\n      \"files\": [\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79fbe2db-40e7-4b43-bea1-eb239aeb3ca3",
+              "name": "Order created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"email\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"company\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"state\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"company\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"state\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  ],\n  \"items\": [\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"shipping_level\": \"<string>\",\n      \"quote\": \"<string>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ],\n      \"files\": [\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"shipping_level\": \"<string>\",\n      \"quote\": \"<string>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ],\n      \"files\": [\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reference\": \"string\",\n  \"order\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa4b15f2-89c8-451d-8775-0211b067fdc0",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"email\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"company\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"state\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"company\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"state\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  ],\n  \"items\": [\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"shipping_level\": \"<string>\",\n      \"quote\": \"<string>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ],\n      \"files\": [\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"shipping_level\": \"<string>\",\n      \"quote\": \"<string>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ],\n      \"files\": [\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72b89afe-bb39-4669-b571-2f7970782f89",
+              "name": "Missing or invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"email\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"company\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"state\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"company\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"state\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  ],\n  \"items\": [\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"shipping_level\": \"<string>\",\n      \"quote\": \"<string>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ],\n      \"files\": [\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"reference\": \"<string>\",\n      \"product\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"shipping_level\": \"<string>\",\n      \"quote\": \"<string>\",\n      \"options\": [\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"count\": \"<integer>\"\n        }\n      ],\n      \"files\": [\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"md5sum\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b976882-386a-4e98-8078-1fb75d66b1b3",
+          "name": "Cancel order",
+          "request": {
+            "name": "Cancel order",
+            "description": {
+              "content": "Request cancellation of an order that has not yet entered production.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "66f5c0ad-5447-46d8-a924-4ded5c24d81f",
+              "name": "Cancellation accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "178ac209-f915-4696-94c4-82a110731736",
+              "name": "Missing or invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f7d4885-102d-49e1-a068-c9f8931bb436",
+              "name": "Conflict - the order is in a state that does not allow the operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f158694-0fb3-41e2-a2c7-5214bd83dd2a",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24e01514-0d7f-47fb-851c-a6b166facc53",
+          "name": "Order log",
+          "request": {
+            "name": "Order log",
+            "description": {
+              "content": "Retrieve the historical state changes for an order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "log"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c22a1da3-bb31-44c6-aa33-2bb546a2af37",
+              "name": "Order state-change log.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "log"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"log\": [\n    {\n      \"date\": \"1986-05-02T10:13:26.216Z\",\n      \"state\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"date\": \"1953-10-03T20:30:12.611Z\",\n      \"state\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58f2bd86-9b21-42bd-a05c-8d4992429c59",
+              "name": "Missing or invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "log"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2ba3127a-8ba2-459d-965a-7a8d99562001",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "log"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apikey\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.cloudprinter.com/cloudcore/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "670b7eed-e219-483c-8ce0-432271d1163d",
+    "name": "Cloudprinter CloudCore Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Cloudprinter.com CloudCore API is a JSON REST interface for the global print-on-demand and print-fulfillment network. All calls are HTTP POST and authenticate with a CloudCore apikey supplied in the JSON request body. The API exposes product catalog lookups, real-time price and shipping quotes, order creation and management, and shipping reference data. Production and shipment events are delivered separately via CloudSignal webhooks.\n\nContact Support:\n Name: Cloudprinter.com Support",
+      "type": "text/plain"
+    }
+  }
+}

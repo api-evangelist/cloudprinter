@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cloudprinter CloudCore Orders Shipping API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shipping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Shipping levels",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/shipping/levels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the available shipping service tiers (cp_fast, cp_saver, cp_ground, cp_postal)."
+        },
+        {
+          "info": {
+            "name": "Shipping countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/shipping/countries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List supported delivery destination countries."
+        },
+        {
+          "info": {
+            "name": "Shipping states",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloudprinter.com/cloudcore/1.0/shipping/states",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the regions or states available for a specific country."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
