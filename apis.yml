@@ -25,6 +25,12 @@ tags:
 - Print on Demand
 - Print Fulfillment
 - Printing
+- Order
+- Logistics
+tags_raw:
+- Print on Demand
+- Print Fulfillment
+- Printing
 - Orders
 - Logistics
 created: '2026-06-25'
@@ -37,6 +43,8 @@ apis:
   humanURL: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
   baseURL: https://api.cloudprinter.com/cloudcore/1.0
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -55,6 +63,8 @@ apis:
   humanURL: https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/
   baseURL: https://api.cloudprinter.com/cloudcore/1.0
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
