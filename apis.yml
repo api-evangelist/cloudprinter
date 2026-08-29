@@ -126,6 +126,9 @@ apis:
   - type: Documentation
     url: https://docs.cloudprinter.com/client/cloudsignal-webhooks
 common:
+- type: CapabilityMap
+  url: capabilities/cloudprinter-capability-edges.yml
+  name: Cloudprinter Business Capability Map
 - type: AgenticAccess
   url: agentic-access/cloudprinter-agentic-access.yml
 - type: DomainSecurity
