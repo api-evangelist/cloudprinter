@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Cloudprinter CloudCore Orders Shipping API
+  title: Cloudprinter CloudCore Shipping API
   description: The Cloudprinter.com CloudCore API is a JSON REST interface for the global print-on-demand and print-fulfillment network. All calls are HTTP POST and authenticate with a CloudCore apikey supplied in the JSON request body. The API exposes product catalog lookups, real-time price and shipping quotes, order creation and management, and shipping reference data. Production and shipment events are delivered separately via CloudSignal webhooks.
   termsOfService: https://www.cloudprinter.com/terms-conditions
   contact:
@@ -72,6 +72,14 @@ paths:
           $ref: '#/components/responses/Forbidden'
 components:
   schemas:
+    ApiKeyRequest:
+      type: object
+      required:
+      - apikey
+      properties:
+        apikey:
+          type: string
+          description: CloudCore API key.
     ShippingStatesRequest:
       type: object
       required:
@@ -83,14 +91,6 @@ components:
         country:
           type: string
           description: ISO 3166-1 alpha-2 country code.
-    ApiKeyRequest:
-      type: object
-      required:
-      - apikey
-      properties:
-        apikey:
-          type: string
-          description: CloudCore API key.
   responses:
     Forbidden:
       description: Missing or invalid credentials.

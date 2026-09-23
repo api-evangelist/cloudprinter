@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Cloudprinter CloudCore Orders API
   description: The Cloudprinter.com CloudCore API is a JSON REST interface for the global print-on-demand and print-fulfillment network. All calls are HTTP POST and authenticate with a CloudCore apikey supplied in the JSON request body. The API exposes product catalog lookups, real-time price and shipping quotes, order creation and management, and shipping reference data. Production and shipment events are delivered separately via CloudSignal webhooks.
@@ -171,6 +171,53 @@ components:
           type: string
         phone:
           type: string
+    AddOrderResponse:
+      type: object
+      properties:
+        reference:
+          type: string
+        order:
+          type: string
+          description: Cloudprinter order identifier.
+    Order:
+      type: object
+      properties:
+        reference:
+          type: string
+        order:
+          type: string
+        state:
+          type: string
+        email:
+          type: string
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+    File:
+      type: object
+      required:
+      - type
+      - url
+      properties:
+        type:
+          type: string
+          description: File type - product, cover, or book.
+          enum:
+          - product
+          - cover
+          - book
+        url:
+          type: string
+          format: uri
+          description: Publicly reachable URL of the print-ready file.
+        md5sum:
+          type: string
+          description: MD5 checksum used to validate the downloaded file.
     OrderItem:
       type: object
       required:
@@ -198,6 +245,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/File'
+    OrderLogResponse:
+      type: object
+      properties:
+        log:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date-time
+              state:
+                type: string
+              message:
+                type: string
+    ApiKeyRequest:
+      type: object
+      required:
+      - apikey
+      properties:
+        apikey:
+          type: string
+          description: CloudCore API key.
     OrderReferenceRequest:
       type: object
       required:
@@ -209,41 +279,6 @@ components:
         reference:
           type: string
           description: The unique order reference.
-    AddOrderResponse:
-      type: object
-      properties:
-        reference:
-          type: string
-        order:
-          type: string
-          description: Cloudprinter order identifier.
-    ApiKeyRequest:
-      type: object
-      required:
-      - apikey
-      properties:
-        apikey:
-          type: string
-          description: CloudCore API key.
-    Order:
-      type: object
-      properties:
-        reference:
-          type: string
-        order:
-          type: string
-        state:
-          type: string
-        email:
-          type: string
-        addresses:
-          type: array
-          items:
-            $ref: '#/components/schemas/Address'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderItem'
     AddOrderRequest:
       type: object
       required:
@@ -268,21 +303,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OrderItem'
-    OrderLogResponse:
-      type: object
-      properties:
-        log:
-          type: array
-          items:
-            type: object
-            properties:
-              date:
-                type: string
-                format: date-time
-              state:
-                type: string
-              message:
-                type: string
     Option:
       type: object
       required:
@@ -300,26 +320,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Order'
-    File:
-      type: object
-      required:
-      - type
-      - url
-      properties:
-        type:
-          type: string
-          description: File type - product, cover, or book.
-          enum:
-          - product
-          - cover
-          - book
-        url:
-          type: string
-          format: uri
-          description: Publicly reachable URL of the print-ready file.
-        md5sum:
-          type: string
-          description: MD5 checksum used to validate the downloaded file.
   responses:
     BadRequest:
       description: Invalid request parameters.

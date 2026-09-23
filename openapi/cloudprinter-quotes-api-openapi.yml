@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Cloudprinter CloudCore Orders Quotes API
+  title: Cloudprinter CloudCore Quotes API
   description: The Cloudprinter.com CloudCore API is a JSON REST interface for the global print-on-demand and print-fulfillment network. All calls are HTTP POST and authenticate with a CloudCore apikey supplied in the JSON request body. The API exposes product catalog lookups, real-time price and shipping quotes, order creation and management, and shipping reference data. Production and shipment events are delivered separately via CloudSignal webhooks.
   termsOfService: https://www.cloudprinter.com/terms-conditions
   contact:
@@ -41,6 +41,11 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 components:
+  responses:
+    BadRequest:
+      description: Invalid request parameters.
+    Forbidden:
+      description: Missing or invalid credentials.
   schemas:
     QuoteRequest:
       type: object
@@ -64,6 +69,36 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/QuoteItem'
+    QuoteItem:
+      type: object
+      required:
+      - reference
+      - product
+      - count
+      properties:
+        reference:
+          type: string
+          description: Caller-supplied item reference.
+        product:
+          type: string
+          description: Product reference.
+        count:
+          type: integer
+          description: Number of copies.
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Option'
+    Option:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          description: Option type reference (e.g. type_cover_paper, type_book_binding).
+        count:
+          type: integer
     QuoteResponse:
       type: object
       properties:
@@ -90,41 +125,6 @@ components:
                       type: string
                     currency:
                       type: string
-    Option:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-          description: Option type reference (e.g. type_cover_paper, type_book_binding).
-        count:
-          type: integer
-    QuoteItem:
-      type: object
-      required:
-      - reference
-      - product
-      - count
-      properties:
-        reference:
-          type: string
-          description: Caller-supplied item reference.
-        product:
-          type: string
-          description: Product reference.
-        count:
-          type: integer
-          description: Number of copies.
-        options:
-          type: array
-          items:
-            $ref: '#/components/schemas/Option'
-  responses:
-    BadRequest:
-      description: Invalid request parameters.
-    Forbidden:
-      description: Missing or invalid credentials.
   securitySchemes:
     apikeyBody:
       type: apiKey
