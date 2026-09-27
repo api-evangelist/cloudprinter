@@ -134,6 +134,85 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    OrderReferenceRequest:
+      type: object
+      required:
+      - apikey
+      - reference
+      properties:
+        apikey:
+          type: string
+        reference:
+          type: string
+          description: The unique order reference.
+    Order:
+      type: object
+      properties:
+        reference:
+          type: string
+        order:
+          type: string
+        state:
+          type: string
+        email:
+          type: string
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+    OrderLogResponse:
+      type: object
+      properties:
+        log:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date-time
+              state:
+                type: string
+              message:
+                type: string
+    OrderListResponse:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+    OrderItem:
+      type: object
+      required:
+      - reference
+      - product
+      - count
+      properties:
+        reference:
+          type: string
+        product:
+          type: string
+        count:
+          type: integer
+        shipping_level:
+          type: string
+          description: Shipping level reference (e.g. cp_saver). Use this or a quote hash.
+        quote:
+          type: string
+          description: Quote hash from a prior /orders/quote call.
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Option'
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/File'
     Address:
       type: object
       required:
@@ -171,33 +250,6 @@ components:
           type: string
         phone:
           type: string
-    AddOrderResponse:
-      type: object
-      properties:
-        reference:
-          type: string
-        order:
-          type: string
-          description: Cloudprinter order identifier.
-    Order:
-      type: object
-      properties:
-        reference:
-          type: string
-        order:
-          type: string
-        state:
-          type: string
-        email:
-          type: string
-        addresses:
-          type: array
-          items:
-            $ref: '#/components/schemas/Address'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderItem'
     File:
       type: object
       required:
@@ -218,67 +270,6 @@ components:
         md5sum:
           type: string
           description: MD5 checksum used to validate the downloaded file.
-    OrderItem:
-      type: object
-      required:
-      - reference
-      - product
-      - count
-      properties:
-        reference:
-          type: string
-        product:
-          type: string
-        count:
-          type: integer
-        shipping_level:
-          type: string
-          description: Shipping level reference (e.g. cp_saver). Use this or a quote hash.
-        quote:
-          type: string
-          description: Quote hash from a prior /orders/quote call.
-        options:
-          type: array
-          items:
-            $ref: '#/components/schemas/Option'
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/File'
-    OrderLogResponse:
-      type: object
-      properties:
-        log:
-          type: array
-          items:
-            type: object
-            properties:
-              date:
-                type: string
-                format: date-time
-              state:
-                type: string
-              message:
-                type: string
-    ApiKeyRequest:
-      type: object
-      required:
-      - apikey
-      properties:
-        apikey:
-          type: string
-          description: CloudCore API key.
-    OrderReferenceRequest:
-      type: object
-      required:
-      - apikey
-      - reference
-      properties:
-        apikey:
-          type: string
-        reference:
-          type: string
-          description: The unique order reference.
     AddOrderRequest:
       type: object
       required:
@@ -303,6 +294,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OrderItem'
+    AddOrderResponse:
+      type: object
+      properties:
+        reference:
+          type: string
+        order:
+          type: string
+          description: Cloudprinter order identifier.
+    ApiKeyRequest:
+      type: object
+      required:
+      - apikey
+      properties:
+        apikey:
+          type: string
+          description: CloudCore API key.
     Option:
       type: object
       required:
@@ -313,22 +320,15 @@ components:
           description: Option type reference (e.g. type_cover_paper, type_book_binding).
         count:
           type: integer
-    OrderListResponse:
-      type: object
-      properties:
-        orders:
-          type: array
-          items:
-            $ref: '#/components/schemas/Order'
   responses:
     BadRequest:
       description: Invalid request parameters.
-    Conflict:
-      description: Conflict - the order is in a state that does not allow the operation.
-    NotFound:
-      description: Resource not found.
     Forbidden:
       description: Missing or invalid credentials.
+    NotFound:
+      description: Resource not found.
+    Conflict:
+      description: Conflict - the order is in a state that does not allow the operation.
   securitySchemes:
     apikeyBody:
       type: apiKey

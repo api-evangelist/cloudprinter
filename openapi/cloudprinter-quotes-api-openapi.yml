@@ -41,34 +41,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 components:
-  responses:
-    BadRequest:
-      description: Invalid request parameters.
-    Forbidden:
-      description: Missing or invalid credentials.
   schemas:
-    QuoteRequest:
-      type: object
-      required:
-      - apikey
-      - country
-      - items
-      properties:
-        apikey:
-          type: string
-        country:
-          type: string
-          description: ISO 3166-1 alpha-2 destination country code.
-        state:
-          type: string
-          description: State or region code, required for some countries (e.g. US).
-        currency:
-          type: string
-          description: ISO 4217 currency code for returned prices.
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuoteItem'
     QuoteItem:
       type: object
       required:
@@ -89,16 +62,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Option'
-    Option:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-          description: Option type reference (e.g. type_cover_paper, type_book_binding).
-        count:
-          type: integer
     QuoteResponse:
       type: object
       properties:
@@ -125,6 +88,43 @@ components:
                       type: string
                     currency:
                       type: string
+    QuoteRequest:
+      type: object
+      required:
+      - apikey
+      - country
+      - items
+      properties:
+        apikey:
+          type: string
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 destination country code.
+        state:
+          type: string
+          description: State or region code, required for some countries (e.g. US).
+        currency:
+          type: string
+          description: ISO 4217 currency code for returned prices.
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteItem'
+    Option:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          description: Option type reference (e.g. type_cover_paper, type_book_binding).
+        count:
+          type: integer
+  responses:
+    BadRequest:
+      description: Invalid request parameters.
+    Forbidden:
+      description: Missing or invalid credentials.
   securitySchemes:
     apikeyBody:
       type: apiKey

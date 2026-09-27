@@ -63,20 +63,7 @@ paths:
         '410':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    NotFound:
-      description: Resource not found.
-    Forbidden:
-      description: Missing or invalid credentials.
   schemas:
-    ApiKeyRequest:
-      type: object
-      required:
-      - apikey
-      properties:
-        apikey:
-          type: string
-          description: CloudCore API key.
     ProductListResponse:
       type: object
       properties:
@@ -91,17 +78,6 @@ components:
                 type: string
               category:
                 type: string
-    ProductInfoRequest:
-      type: object
-      required:
-      - apikey
-      - product
-      properties:
-        apikey:
-          type: string
-        product:
-          type: string
-          description: The product reference.
     ProductInfo:
       type: object
       properties:
@@ -123,6 +99,30 @@ components:
           items:
             type: string
             description: Price unit type (e.g. price_unit_pr_order, price_unit_pr_page).
+    ApiKeyRequest:
+      type: object
+      required:
+      - apikey
+      properties:
+        apikey:
+          type: string
+          description: CloudCore API key.
+    ProductInfoRequest:
+      type: object
+      required:
+      - apikey
+      - product
+      properties:
+        apikey:
+          type: string
+        product:
+          type: string
+          description: The product reference.
+  responses:
+    Forbidden:
+      description: Missing or invalid credentials.
+    NotFound:
+      description: Resource not found.
   securitySchemes:
     apikeyBody:
       type: apiKey

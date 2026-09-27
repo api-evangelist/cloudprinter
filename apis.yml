@@ -34,6 +34,10 @@ accessModel:
   generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cloudprinter.png
+x-docs-platform: vitepress
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-24
+x-docs-hosting: aws-cloudfront
 tags:
 - Print on Demand
 - Print Fulfillment
