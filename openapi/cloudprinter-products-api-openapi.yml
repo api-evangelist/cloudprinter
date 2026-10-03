@@ -64,6 +64,17 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    ProductInfoRequest:
+      type: object
+      required:
+      - apikey
+      - product
+      properties:
+        apikey:
+          type: string
+        product:
+          type: string
+          description: The product reference.
     ProductListResponse:
       type: object
       properties:
@@ -78,6 +89,14 @@ components:
                 type: string
               category:
                 type: string
+    ApiKeyRequest:
+      type: object
+      required:
+      - apikey
+      properties:
+        apikey:
+          type: string
+          description: CloudCore API key.
     ProductInfo:
       type: object
       properties:
@@ -99,25 +118,6 @@ components:
           items:
             type: string
             description: Price unit type (e.g. price_unit_pr_order, price_unit_pr_page).
-    ApiKeyRequest:
-      type: object
-      required:
-      - apikey
-      properties:
-        apikey:
-          type: string
-          description: CloudCore API key.
-    ProductInfoRequest:
-      type: object
-      required:
-      - apikey
-      - product
-      properties:
-        apikey:
-          type: string
-        product:
-          type: string
-          description: The product reference.
   responses:
     Forbidden:
       description: Missing or invalid credentials.

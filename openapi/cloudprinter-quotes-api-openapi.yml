@@ -42,6 +42,28 @@ paths:
           $ref: '#/components/responses/Forbidden'
 components:
   schemas:
+    QuoteRequest:
+      type: object
+      required:
+      - apikey
+      - country
+      - items
+      properties:
+        apikey:
+          type: string
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 destination country code.
+        state:
+          type: string
+          description: State or region code, required for some countries (e.g. US).
+        currency:
+          type: string
+          description: ISO 4217 currency code for returned prices.
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteItem'
     QuoteItem:
       type: object
       required:
@@ -88,28 +110,6 @@ components:
                       type: string
                     currency:
                       type: string
-    QuoteRequest:
-      type: object
-      required:
-      - apikey
-      - country
-      - items
-      properties:
-        apikey:
-          type: string
-        country:
-          type: string
-          description: ISO 3166-1 alpha-2 destination country code.
-        state:
-          type: string
-          description: State or region code, required for some countries (e.g. US).
-        currency:
-          type: string
-          description: ISO 4217 currency code for returned prices.
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuoteItem'
     Option:
       type: object
       required:
@@ -121,10 +121,10 @@ components:
         count:
           type: integer
   responses:
-    BadRequest:
-      description: Invalid request parameters.
     Forbidden:
       description: Missing or invalid credentials.
+    BadRequest:
+      description: Invalid request parameters.
   securitySchemes:
     apikeyBody:
       type: apiKey

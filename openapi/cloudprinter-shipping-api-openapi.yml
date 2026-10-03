@@ -71,15 +71,10 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 components:
+  responses:
+    Forbidden:
+      description: Missing or invalid credentials.
   schemas:
-    ApiKeyRequest:
-      type: object
-      required:
-      - apikey
-      properties:
-        apikey:
-          type: string
-          description: CloudCore API key.
     ShippingStatesRequest:
       type: object
       required:
@@ -91,9 +86,14 @@ components:
         country:
           type: string
           description: ISO 3166-1 alpha-2 country code.
-  responses:
-    Forbidden:
-      description: Missing or invalid credentials.
+    ApiKeyRequest:
+      type: object
+      required:
+      - apikey
+      properties:
+        apikey:
+          type: string
+          description: CloudCore API key.
   securitySchemes:
     apikeyBody:
       type: apiKey
