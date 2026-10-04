@@ -42,6 +42,26 @@ paths:
           $ref: '#/components/responses/Forbidden'
 components:
   schemas:
+    QuoteItem:
+      type: object
+      required:
+      - reference
+      - product
+      - count
+      properties:
+        reference:
+          type: string
+          description: Caller-supplied item reference.
+        product:
+          type: string
+          description: Product reference.
+        count:
+          type: integer
+          description: Number of copies.
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Option'
     QuoteRequest:
       type: object
       required:
@@ -64,26 +84,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/QuoteItem'
-    QuoteItem:
+    Option:
       type: object
       required:
-      - reference
-      - product
-      - count
+      - type
       properties:
-        reference:
+        type:
           type: string
-          description: Caller-supplied item reference.
-        product:
-          type: string
-          description: Product reference.
+          description: Option type reference (e.g. type_cover_paper, type_book_binding).
         count:
           type: integer
-          description: Number of copies.
-        options:
-          type: array
-          items:
-            $ref: '#/components/schemas/Option'
     QuoteResponse:
       type: object
       properties:
@@ -110,21 +120,11 @@ components:
                       type: string
                     currency:
                       type: string
-    Option:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-          description: Option type reference (e.g. type_cover_paper, type_book_binding).
-        count:
-          type: integer
   responses:
-    Forbidden:
-      description: Missing or invalid credentials.
     BadRequest:
       description: Invalid request parameters.
+    Forbidden:
+      description: Missing or invalid credentials.
   securitySchemes:
     apikeyBody:
       type: apiKey

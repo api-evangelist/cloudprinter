@@ -75,6 +75,14 @@ components:
         product:
           type: string
           description: The product reference.
+    ApiKeyRequest:
+      type: object
+      required:
+      - apikey
+      properties:
+        apikey:
+          type: string
+          description: CloudCore API key.
     ProductListResponse:
       type: object
       properties:
@@ -89,14 +97,6 @@ components:
                 type: string
               category:
                 type: string
-    ApiKeyRequest:
-      type: object
-      required:
-      - apikey
-      properties:
-        apikey:
-          type: string
-          description: CloudCore API key.
     ProductInfo:
       type: object
       properties:
@@ -119,10 +119,10 @@ components:
             type: string
             description: Price unit type (e.g. price_unit_pr_order, price_unit_pr_page).
   responses:
-    Forbidden:
-      description: Missing or invalid credentials.
     NotFound:
       description: Resource not found.
+    Forbidden:
+      description: Missing or invalid credentials.
   securitySchemes:
     apikeyBody:
       type: apiKey
