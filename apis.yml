@@ -51,7 +51,7 @@ tags_raw:
 - Orders
 - Logistics
 created: '2026-06-25'
-modified: '2026-06-25'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: cloudprinter:cloudprinter-orders-api
@@ -131,6 +131,8 @@ apis:
   - type: Documentation
     url: https://docs.cloudprinter.com/client/cloudsignal-webhooks
 common:
+- url: https://www.cloudprinter.com/blog
+  type: Blog
 - type: CapabilityMap
   url: capabilities/cloudprinter-capability-edges.yml
   name: Cloudprinter Business Capability Map
