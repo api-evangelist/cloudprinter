@@ -141,3 +141,40 @@ plans:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units:
+  - negotiated
+  - period
+  - transaction
+  plans:
+  - name: Starter
+    access: free
+    model: hybrid
+    model_how: derived
+    units:
+    - period
+    - transaction
+    periods:
+    - month
+  - name: Business
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - period
+    - transaction
+    periods:
+    - month
+  - name: Enterprise
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year
