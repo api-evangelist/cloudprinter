@@ -1,0 +1,23 @@
+generated: '2026-10-15'
+method: searched
+checked:
+- shopify/integrations/shopify-integration-edges.yml
+source:
+- shopify/integrations/shopify-integration-edges.yml
+edges:
+- partner_name: Shopify (own)
+  partner: shopify
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://apps.shopify.com/cloudprinter-com
+  mirror_of: shopify/integrations/shopify-integration-edges.yml
+  apps:
+  - 'Cloudprinter: Print on Demand'
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
