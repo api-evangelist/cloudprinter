@@ -71,6 +71,9 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 components:
+  responses:
+    Forbidden:
+      description: Missing or invalid credentials.
   schemas:
     ApiKeyRequest:
       type: object
@@ -91,9 +94,6 @@ components:
         country:
           type: string
           description: ISO 3166-1 alpha-2 country code.
-  responses:
-    Forbidden:
-      description: Missing or invalid credentials.
   securitySchemes:
     apikeyBody:
       type: apiKey

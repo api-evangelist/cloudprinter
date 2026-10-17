@@ -83,20 +83,6 @@ components:
         apikey:
           type: string
           description: CloudCore API key.
-    ProductListResponse:
-      type: object
-      properties:
-        products:
-          type: array
-          items:
-            type: object
-            properties:
-              reference:
-                type: string
-              name:
-                type: string
-              category:
-                type: string
     ProductInfo:
       type: object
       properties:
@@ -118,6 +104,20 @@ components:
           items:
             type: string
             description: Price unit type (e.g. price_unit_pr_order, price_unit_pr_page).
+    ProductListResponse:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              reference:
+                type: string
+              name:
+                type: string
+              category:
+                type: string
   responses:
     NotFound:
       description: Resource not found.
