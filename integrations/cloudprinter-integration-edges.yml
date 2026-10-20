@@ -1,10 +1,38 @@
-generated: '2026-10-15'
+generated: '2026-10-20'
 method: searched
+source:
+- shopify/integrations/shopify-integration-edges.yml
+- https://zapier.com/apps/cloudprinter/integrations
 checked:
 - https://zapier.com/api/v4/apps/
 - shopify/integrations/shopify-integration-edges.yml
-source:
-- shopify/integrations/shopify-integration-edges.yml
+- https://composio.dev/toolkits/cloudprinter
+- https://monid.ai/tools/cloudprinter
+- https://n8n.io/integrations/cloudprinter/
+- https://zapier.com/apps/cloudprinter/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: cloudprinter
+  url: https://zapier.com/apps/cloudprinter/integrations
+  external_url: https://www.cloudprinter.com/
+  partner_tier: BRONZE
+  triggers:
+  - key: signal
+    label: New Signals
+  actions:
+  - key: cancelOrder
+    label: Cancel Order
+  - key: newOrder
+    label: Create Order
+  - key: newOrderQuote
+    label: Request Order Quote
+  searches:
+  - key: order
+    label: Find an Order
+  - key: product
+    label: Find a Product
 edges:
 - partner_name: Shopify (own)
   partner: shopify
@@ -47,3 +75,425 @@ edges:
     builder: unknown (not in the directory record)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Gumroad
+  partner: gumroad
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/gumroad
+  direction: third-party
+  category: eCommerce
+  partner_url: https://gumroad.com/
+- partner_name: Google Drive
+  partner: google-drive
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/google-drive
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://www.google.com/drive/
+- partner_name: Dropbox
+  partner: dropbox
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/dropbox
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://dropbox.com/
+- partner_name: Wix
+  partner: wix
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/wix
+  direction: third-party
+  category: Website Builders
+  partner_url: https://www.wix.com/
+- partner_name: Square
+  partner: square
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/square
+  direction: third-party
+  category: eCommerce
+  partner_url: https://squareup.com/t/cmtp_performance/pr_developers/d_partnerships/p_zapier/?route=
+- partner_name: WooCommerce
+  partner: woocommerce
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/woocommerce
+  direction: third-party
+  category: eCommerce
+  partner_url: https://woocommerce.com/products/woocommerce-zapier/?utm_source=zapier&utm_medium=website&utm_campaign=integration
+- partner_name: Kajabi
+  partner: kajabi
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/kajabi
+  direction: third-party
+  category: eCommerce
+  partner_url: http://kajabi.com/
+- partner_name: eBay
+  partner: ebay
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/ebay
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.ebay.com/
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: SamCart
+  partner: samcart
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/samcart
+  direction: third-party
+  category: eCommerce
+  partner_url: https://samcart.com/
+- partner_name: Inoreader
+  partner: inoreader
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/inoreader
+  direction: third-party
+  category: Website Builders
+  partner_url: https://www.inoreader.com/
+- partner_name: Zid
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/zid
+  direction: third-party
+  category: eCommerce
+  partner_url: https://zid.sa/
+- partner_name: Sellfy
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/sellfy
+  direction: third-party
+  category: eCommerce
+  partner_url: https://sellfy.com/
+- partner_name: Webflow
+  partner: webflow
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/webflow
+  direction: third-party
+  category: Website Builders
+  partner_url: https://webflow.com/
+- partner_name: ShipStation
+  partner: shipstation
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/shipstation
+  direction: third-party
+  category: eCommerce
+  partner_url: http://www.shipstation.com/
+- partner_name: Big Cartel
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/bigcartel
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.bigcartel.com/?utm_source=zapier&utm_medium=referral&utm_campaign=integration_partner
+- partner_name: Google Forms
+  partner: google-forms
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/google-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: Typeform
+  partner: typeform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/typeform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.typeform.com/signup?utm_medium=referral&utm_source=zapier&utm_campaign=zapier_integration&utm_content=marketplace
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: Superhuman Docs
+  partner: superhuman
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/superhuman-docs
+  direction: third-party
+  category: Documents
+  partner_url: https://id.superhuman.com/signup
+- partner_name: Google Docs
+  partner: google-docs
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/google-docs
+  direction: third-party
+  category: Documents
+  partner_url: http://google.com/
+- partner_name: monday.com
+  partner: monday-com
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: YouCan
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/youcan
+  direction: third-party
+  category: eCommerce
+  partner_url: https://youcan.shop/
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: Eventbrite
+  partner: eventbrite
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/eventbrite
+  direction: third-party
+  category: Event Management
+  partner_url: https://eventbrite.com/
+- partner_name: ClickFunnels Classic
+  partner: clickfunnels
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/clickfunnels-classic
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.clickfunnels.com/
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: Mailparser
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/cloudprinter/integrations/mailparser
+  direction: third-party
+  category: Email
+  partner_url: https://mailparser.io/
+templates:
+- title: Add new Cloudprinter.com signals to Google Sheets spreadsheets
+  url: https://zapier.com/apps/cloudprinter/integrations/google-sheets/126201/add-new-cloudprintercom-signals-to-google-sheets-spreadsheets
+  apps:
+  - cloudprinter
+  - google-sheets
+- title: Create Cloudprinter.com orders from new files on Google Drive
+  url: https://zapier.com/apps/cloudprinter/integrations/google-drive/126222/create-cloudprintercom-orders-from-new-files-on-google-drive
+  apps:
+  - google-drive
+  - cloudprinter
+- title: Create Trello cards for new canceled orders in Cloudprinter.com
+  url: https://zapier.com/apps/cloudprinter/integrations/trello/132698/create-trello-cards-for-new-canceled-orders-in-cloudprintercom
+  apps:
+  - cloudprinter
+  - trello
+- title: Create Cloudprinter.com orders from new files in Dropbox
+  url: https://zapier.com/apps/cloudprinter/integrations/dropbox/132709/create-cloudprintercom-orders-from-new-files-in-dropbox
+  apps:
+  - dropbox
+  - cloudprinter
+- title: Share new Cloudprinter.com orders with Slack messages
+  url: https://zapier.com/apps/cloudprinter/integrations/slack/132713/share-new-cloudprintercom-orders-with-slack-messages
+  apps:
+  - cloudprinter
+  - slack
+- title: Share cancelled Cloudprinter.com orders as new Slack channel messages
+  url: https://zapier.com/apps/cloudprinter/integrations/slack/132718/share-cancelled-cloudprintercom-orders-as-new-slack-channel-messages
+  apps:
+  - cloudprinter
+  - slack
+- title: Create Hubspot tickets from new order cancelations in Cloudprinter.com
+  url: https://zapier.com/apps/cloudprinter/integrations/hubspot/132751/create-hubspot-tickets-from-new-order-cancelations-in-cloudprintercom
+  apps:
+  - cloudprinter
+  - hubspot
+- title: Create Jira issues from new canceled order signals in Cloudprinter.com
+  url: https://zapier.com/apps/cloudprinter/integrations/jira-software-cloud/132755/create-jira-issues-from-new-canceled-order-signals-in-cloudprintercom
+  apps:
+  - cloudprinter
+  - jira-software-cloud
+- title: Create Cloudprinter.com orders when new Trello cards are moved to a list
+  url: https://zapier.com/apps/cloudprinter/integrations/trello/132763/create-cloudprintercom-orders-when-new-trello-cards-are-moved-to-a-list
+  apps:
+  - trello
+  - cloudprinter
+- title: Create monday.com items with new signals in Cloudprinter.com
+  url: https://zapier.com/apps/cloudprinter/integrations/monday/132772/create-mondaycom-items-with-new-signals-in-cloudprintercom
+  apps:
+  - cloudprinter
+  - monday
+- title: Create new Cloudprinter.com orders from new Gmail emails
+  url: https://zapier.com/apps/cloudprinter/integrations/gmail/132780/create-new-cloudprintercom-orders-from-new-gmail-emails
+  apps:
+  - gmail
+  - cloudprinter
+- title: Create Cloudprinter.com orders with new Google Forms responses
+  url: https://zapier.com/apps/cloudprinter/integrations/google-forms/132797/create-cloudprintercom-orders-with-new-google-forms-responses
+  apps:
+  - google-forms
+  - cloudprinter
+template_total: 20
