@@ -1,4 +1,4 @@
-# Cloudprinter (cloudprinter)
+# Cloudprinter
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,137 +66,122 @@
 
 Cloudprinter.com is a global print-on-demand and print-fulfillment API network connecting buyers to 170+ print partners worldwide. The CloudCore REST API lets developers fetch product catalogs, request real-time price and shipping quotes, submit and manage print orders, and receive production and shipment events via CloudSignal webhooks.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/cloudprinter/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/cloudprinter/refs/heads/main/apis.yml)
+**Areas:** Print on Demand · Print Fulfillment · Printing · Order · Logistics
 
-## Tags
+## Cloudprinter on APIs.io
 
-- Print on Demand
-- Print Fulfillment
-- Printing
-- Orders
-- Logistics
+Everything profiled for Cloudprinter is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cloudprinter/](https://apis.io/providers/cloudprinter/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-06-25
-- **Modified:** 2026-06-25
+- [Cloudprinter Orders API](https://apis.io/apis/cloudprinter/cloudprinter-orders-api/) — Create, list, retrieve, cancel, and audit print orders.
+- [Cloudprinter Products API](https://apis.io/apis/cloudprinter/cloudprinter-products-api/) — List products and retrieve product specifications and options.
+- [Cloudprinter Quotes API](https://apis.io/apis/cloudprinter/cloudprinter-quotes-api/) — Request real-time product and shipping price quotes.
+- [Cloudprinter Shipping API](https://apis.io/apis/cloudprinter/cloudprinter-shipping-api/) — Shipping levels, supported countries, and states reference data.
 
-## APIs
+### Published properties
 
-### Cloudprinter Orders API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Create, list, retrieve, cancel, and audit print orders. Orders carry items, addresses, shipping levels, options, and file references, and are submitted as JSON POST requests with the CloudCore apikey in the body.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/](https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/)
-- **Base URL:** `https://api.cloudprinter.com/cloudcore/1.0`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Cloudprinter Agentic Access](https://apis.io/agentic-access/cloudprinter/cloudprinter-agentic-access/)
 
-- Orders
-- Fulfillment
-- Printing
+#### Collections (5)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/)
-- [API Reference](https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/)
-- [OpenAPI](openapi/cloudprinter-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cloudprinter.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cloudprinter.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Cloudprinter CloudCore API](https://apis.io/collections/cloudprinter/open-cloudprinter/)
+- [Cloudprinter CloudCore Orders API](https://apis.io/collections/cloudprinter/open-cloudprinter-orders-api/)
+- [Cloudprinter CloudCore Orders Products API](https://apis.io/collections/cloudprinter/open-cloudprinter-products-api/)
+- [Cloudprinter CloudCore Orders Quotes API](https://apis.io/collections/cloudprinter/open-cloudprinter-quotes-api/)
+- [Cloudprinter CloudCore Orders Shipping API](https://apis.io/collections/cloudprinter/open-cloudprinter-shipping-api/)
 
-### Cloudprinter Products & Pricing API
+#### Security (2)
 
-List products enabled for the account and retrieve detailed product specifications, available options, and pricing via the products and products/info endpoints.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/](https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/)
-- **Base URL:** `https://api.cloudprinter.com/cloudcore/1.0`
+- [Cloudprinter Authentication](https://apis.io/security/cloudprinter/cloudprinter-authentication/)
+- [Cloudprinter Domain Security](https://apis.io/security/cloudprinter/cloudprinter-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Products
-- Catalog
-- Pricing
+Published plans, tiers and prices.
 
-#### Properties
+- [Cloudprinter Plans Pricing](https://apis.io/plans/cloudprinter/cloudprinter-plans-pricing/)
 
-- [Documentation](https://docs.cloudprinter.com/client/how-to-check-prices)
-- [API Reference](https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/)
-- [OpenAPI](openapi/cloudprinter-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cloudprinter.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cloudprinter.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Cloudprinter Quotes API
+Published request limits.
 
-Request real-time quotes for a list of items returning product prices, shipping options, and shipping prices. Each quote carries a unique hash valid for 48 hours that can be referenced when placing an order.
+- [Cloudprinter Rate Limits](https://apis.io/rate-limits/cloudprinter/cloudprinter-rate-limits/)
 
-- **Human URL:** [https://docs.cloudprinter.com/client/how-to-check-prices](https://docs.cloudprinter.com/client/how-to-check-prices)
-- **Base URL:** `https://api.cloudprinter.com/cloudcore/1.0`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Quotes
-- Pricing
-- Shipping
+- [Cloudprinter Finops](https://apis.io/finops/cloudprinter/cloudprinter-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.cloudprinter.com/client/how-to-check-prices)
-- [API Reference](https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/)
-- [OpenAPI](openapi/cloudprinter-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cloudprinter.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cloudprinter.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Cloudprinter Signal Webhooks API
-
-CloudSignal pushes item-based production and shipment events (order validated, item produced, item shipped with tracking, item error, item cancelled) as small JSON POSTs to a configured CloudCore API interface, retrying up to 100 attempts over 7 days until a 200/204 is returned.
-
-- **Human URL:** [https://docs.cloudprinter.com/client/cloudsignal-webhooks](https://docs.cloudprinter.com/client/cloudsignal-webhooks)
-- **Base URL:** `https://api.cloudprinter.com/cloudcore/1.0`
-
-#### Tags
-
-- Webhooks
-- Signals
-- Events
-
-#### Properties
-
-- [Documentation](https://docs.cloudprinter.com/client/cloudsignal-webhooks)
-- [OpenAPI](openapi/cloudprinter-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cloudprinter.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cloudprinter.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Cloudprinter Files API
-
-Print-ready files (product, cover, book) are referenced on order items by type, URL, and MD5 checksum, and are returned with the same metadata on order info for download and verification by production.
-
-- **Human URL:** [https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/](https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/)
-- **Base URL:** `https://api.cloudprinter.com/cloudcore/1.0`
-
-#### Tags
-
-- Files
-- Print Files
-- Assets
-
-#### Properties
-
-- [Documentation](https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0/)
-- [OpenAPI](openapi/cloudprinter-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cloudprinter.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cloudprinter.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/cloudprintercom)
-- [LinkedIn](https://www.linkedin.com/company/cloudprinter-com)
 - [Website](https://www.cloudprinter.com)
 - [Documentation](https://docs.cloudprinter.com)
-- [Plans](plans/cloudprinter-plans-pricing.yml)
-- [Rate Limits](rate-limits/cloudprinter-rate-limits.yml)
-- [Fin Ops](finops/cloudprinter-finops.yml)
+- [Blog](https://www.cloudprinter.com/blog)
+- [GitHub](https://github.com/cloudprintercom)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 50.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 19.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cloudprinter/](https://apis.io/providers/cloudprinter/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Cloudprinter: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cloudprinter/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
